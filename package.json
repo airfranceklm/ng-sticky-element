@@ -1,0 +1,69 @@
+{
+  "name": "ng-sticky-element",
+  "description": "Angular directive for making element sticky on scrolling",
+  "version": "0.1.0",
+  "main": "dist/ng-sticky-element.js",
+  "keywords": [
+    "angular",
+    "sticky",
+    "element",
+    "navigation",
+    "scroll"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/afklm/ng-sticky-element.git"
+  },
+  "homepage": "https://github.com/afklm/ng-sticky-element",
+  "author": "KLM Royal Dutch Airlines",
+  "contributors": [{
+    "name": "KLM Royal Dutch Airlines"
+  }, {
+    "name": "Tamer Aydin",
+    "homepage": "http://tamerayd.in"
+  }],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/afklm/ng-sticky-element/issues"
+  },
+  "jshintConfig": {
+    "globalstrict": true,
+    "unused": true,
+    "browser": true,
+    "esnext": true,
+    "predef": []
+  },
+  "devDependencies": {
+    "babel-core": "^5.1.10",
+    "babel-loader": "^5.0.0",
+    "coveralls": "^2.11.2",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0",
+    "gulp-concat": "^2.5.0",
+    "gulp-header": "~1.2.2",
+    "gulp-jshint": "^1.9.2",
+    "gulp-livereload": "~3.7.0",
+    "gulp-minify-css": "^0.4.6",
+    "gulp-protractor": "0.0.12",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-uglify": "^1.1.0",
+    "gulp-wait": "0.0.2",
+    "gulp-webpack": "^1.3.2",
+    "jasmine-core": "^2.2.0",
+    "jshint-stylish": "^1.0.0",
+    "karma": "^0.12.31",
+    "karma-babel-preprocessor": "^5.1.0",
+    "karma-coverage": "^0.2.7",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "protractor": "^1.7.0",
+    "run-sequence": "^1.0.2",
+    "st": "^0.5.3",
+    "webpack": "^1.8.5"
+  },
+  "scripts": {
+    "test": "gulp test-unit"
+  }
+}
