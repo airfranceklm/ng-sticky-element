@@ -33,7 +33,7 @@ Place ``afkl-sticky-element`` attribute onto element:
 1. Clone the repo or [download]().
 2. ``npm install && bower install``
 3. Setup E2E testing environment: ``npm install -g protractor && webdriver-manager update --standalone``
-4. Make the selenium driver up: ``webdriver-manager start`` and run ``gulp build``
+4. Make the selenium driver up: ``webdriver-manager start --standalone`` and run ``gulp build``
 5. Run ``gulp watch``, navigate to [http://localhost:8080/demo/index.html](http://localhost:8080/demo/index.html) and play on **/src**
 6. Make sure that tests are up and green: ``gulp test-unit`` or ``gulp test-e2e`` to execute your tests
 
