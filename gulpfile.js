@@ -122,6 +122,11 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest(PATH.DEMO));
 });
 
+gulp.task('reloadDemo', function() {
+  return gulp.src(PATH.DEMO + '*.*')
+    .pipe(livereload());
+});
+
 gulp.task('watch', ['server', 'webpack'], function() {
   livereload.listen({
     basePath: './',
@@ -129,6 +134,7 @@ gulp.task('watch', ['server', 'webpack'], function() {
   });
   gulp.watch(SOURCE.SCRIPTS + '*.js', ['jshint', 'webpack']);
   gulp.watch(SOURCE.STYLES + '*.scss', ['sass']);
+  gulp.watch(PATH.DEMO + '*.*', ['reloadDemo']);
 });
 
 var server;
