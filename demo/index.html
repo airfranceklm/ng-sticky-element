@@ -19,19 +19,35 @@
     ng-app="demoApp"
     ng-controller="demoMainController"
     ng-cloak>
-  <div class="demo__wrapper">
 
-    <div
-        class="demo__navigation"
-        afkl-sticky-element
-        afkl-sticky-element-offset="24">
-      ...
-    </div>
+    <header>
+        <h1>ng-sticky-content</h1>
+    </header>
 
-    <div
-        class="demo__footer"
-        afkl-sticky-element="bottom">
-      ...
+    <div class="demo__wrapper">
+      <div class="demo__content">
+        <div
+            class="demo__navigation"
+            afkl-sticky-element
+            afkl-sticky-element-offset="24">
+          <pre>
+&lt;div
+    afkl-sticky-element
+    afkl-sticky-element-offset=&quot;24&quot;&gt;
+&lt;/div&gt;
+          </pre>
+        </div>
+
+        <div class="demo__content__body">
+          <div
+              class="demo__footer"
+              afkl-sticky-element="bottom">
+            <pre>
+&lt;div afkl-sticky-element=&quot;bottom&quot;&gt;&lt;/div&gt;
+            </pre>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
