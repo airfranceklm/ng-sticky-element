@@ -35,8 +35,14 @@ h1 {
   position: relative;
   margin-left: 312px;
   width: 600px;
-  height: 1000px;
   background: #00a2e1;
+  color: #fff;
+}
+
+.demo__content__text {
+  position: fixed;
+  padding-left: 24px;
+  top: 24px;
 }
 
 .demo__navigation,

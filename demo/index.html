@@ -38,7 +38,14 @@
           </pre>
         </div>
 
-        <div class="demo__content__body">
+        <div class="demo__content__body"
+            ng-click="increaseContentHeight()"
+            ng-style="{height: contentHeight + 'px'}">
+          <span
+              class="demo__content__text"
+              ng-show="isScrolledToBottom">
+            Click to increase content height (Sticky element will respond).
+          </span>
           <div
               class="demo__footer"
               afkl-sticky-element="bottom">
