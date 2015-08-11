@@ -158,7 +158,7 @@ gulp.task('test-unit', function(cb) {
   });
 });
 
-gulp.task('test-e2e', ['server'], function() {
+gulp.task('test-e2e', ['server', 'webpack'], function() {
   return gulp.src([PATH.TEST + 'specs/e2e/*.js'])
     .pipe(protractor({
       configFile: path.join(__dirname, (process.env.TRAVIS) ?
