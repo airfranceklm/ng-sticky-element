@@ -26,10 +26,15 @@ angular
 Place ``afkl-sticky-element`` attribute onto element:
 ```html
 <div afkl-sticky-element>I am now sticky.</div>
+<!-- with optional attributes:
+  afkl-sticky-element="bottom"
+  afkl-sticky-element-offset="24" // offset in px
+  afkl-sticky-element-mq="(min-width: 640px)" // applies stickiness only if given media-query is true
+-->
 ```
 ## Browser Support
 
-All modern browsers & IE versions newer than 9 are supported. IE9 should also be fine in case you polyfill [``requestAnimationFrame``](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
+All modern browsers & IE versions newer than 9 are supported. IE9 should also be fine in case you polyfill [``matchMedia``](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) & [``requestAnimationFrame``](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
 
 ## Development
 
