@@ -40,9 +40,9 @@ h1 {
 }
 
 .demo__content__text {
+  position: absolute;
   padding-left: 24px;
-  display: block;
-  padding-top: 24px;
+  bottom: 72px;
 }
 
 .demo__navigation,
