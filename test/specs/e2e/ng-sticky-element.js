@@ -19,7 +19,7 @@ describe('ng-sticky-element', function() {
     var stickyElements = element.all(by.className(STICKY_CLASS));
     expect(stickyElements.count()).toEqual(1);
 
-    browser.executeScript('window.scrollTo(0, 200);').then(function() {
+    browser.executeScript('window.scrollTo(0, 300);').then(function() {
       stickyElements = element.all(by.className(STICKY_CLASS));
       expect(stickyElements.count()).toEqual(2);
     });
@@ -48,6 +48,13 @@ describe('ng-sticky-element', function() {
               });
           });
       });
+    });
+  });
+
+  it('should respect to given media query', function() {
+    browser.manage().window().setSize(630, 640);
+    browser.executeScript('window.scrollTo(0, 300);').then(function() {
+      expect(moduleElements.get(0).getAttribute('class')).not.toContain(STICKY_CLASS);
     });
   });
 
