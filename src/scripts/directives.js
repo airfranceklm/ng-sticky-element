@@ -25,8 +25,10 @@
             var lastBodyHeight = null;
             var lastInnerWidth = null;
             var elPos = null;
+            var isOnStickyMode = false;
             var body = $document[0].body;
             var element = $element[0];
+            var mediaQuery = attrs.afklStickyElementMq;
             var offset = attrs.afklStickyElementOffset ?
               parseInt(attrs.afklStickyElementOffset) : 0;
 
@@ -40,7 +42,10 @@
             }, 0);
 
             function updateState() {
-              if (element.offsetWidth === 0 || element.offsetHeight === 0) {
+              if (element.offsetWidth === 0 ||
+                  element.offsetHeight === 0 ||
+                  (mediaQuery && !$window.matchMedia(mediaQuery).matches)) {
+                clearStickiness();
                 requestID = $window.requestAnimationFrame(updateState);
                 return;
               }
@@ -79,15 +84,21 @@
             }
 
             function clearStickiness() {
-              $element
-                .removeClass(STICKY_CLASS)
-                .css(stickTo, null);
+              if (isOnStickyMode) {
+                isOnStickyMode = false;
+                $element
+                  .removeClass(STICKY_CLASS)
+                  .css(stickTo, null);
+              }
             }
 
             function addStickiness() {
-              $element
-                .addClass(STICKY_CLASS)
-                .css(stickTo, offset + 'px');
+              if (!isOnStickyMode) {
+                isOnStickyMode = true;
+                $element
+                  .addClass(STICKY_CLASS)
+                  .css(stickTo, offset + 'px');
+              }
             }
 
             $element.on('$destroy', function() {
