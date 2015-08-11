@@ -27,6 +27,9 @@ Place ``afkl-sticky-element`` attribute onto element:
 ```html
 <div afkl-sticky-element>I am now sticky.</div>
 ```
+## Browser Support
+
+All modern browsers & IE versions newer than 9 are supported. IE9 should also be fine in case you polyfill [``requestAnimationFrame``](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
 
 ## Development
 
