@@ -19,54 +19,69 @@
 
             var stickTo = attrs.afklStickyElement === BOTTOM ?
               BOTTOM : TOP;
-
             var requestID = null;
-            var lastYOffset = null;
-            var lastBodyHeight = null;
-            var lastInnerWidth = null;
+            var body = $document[0].body;
+            var lastBodyHeight = body.offsetHeight;
+            var lastYOffset = $window.pageYOffset;
+            var lastInnerWidth = $window.innerWidth;
             var elPos = null;
             var isOnStickyMode = false;
-            var body = $document[0].body;
             var element = $element[0];
+            var $win = angular.element($window);
             var mediaQuery = attrs.afklStickyElementMq;
             var offset = attrs.afklStickyElementOffset ?
               parseInt(attrs.afklStickyElementOffset) : 0;
+
+            $win.bind('blur', stopPollingContentHeight);
+            $win.bind('focus', startPollingContentHeight);
+            $win.bind('scroll', checkWindowAndUpdateState);
+            $win.bind('resize', checkWindowAndUpdateState);
 
             // wait first directives to be rendered,
             // so we can get proper position values:
             $timeout(function() {
               // make the element temporarily visible:
               $element.addClass(VISIBLE_CLASS);
-              requestID = $window.requestAnimationFrame(updateState);
+              updateState();
               $element.removeClass(VISIBLE_CLASS);
+
+              startPollingContentHeight();
             }, 0);
 
-            function updateState() {
-              if (element.offsetWidth === 0 ||
-                  element.offsetHeight === 0 ||
-                  (mediaQuery && !$window.matchMedia(mediaQuery).matches)) {
+            function startPollingContentHeight() {
+              if (lastBodyHeight !== body.offsetHeight) {
+                lastBodyHeight = body.offsetHeight;
+                updateState();
+              }
+
+              requestID = $window.requestAnimationFrame(startPollingContentHeight);
+            }
+
+            function checkWindowAndUpdateState() {
+              if (element.offsetWidth === 0 || element.offsetHeight === 0) {
+                return;
+              }
+
+              if (mediaQuery && !$window.matchMedia(mediaQuery).matches) {
                 clearStickiness();
-                requestID = $window.requestAnimationFrame(updateState);
                 return;
               }
 
               if (lastYOffset !== $window.pageYOffset ||
-                  lastBodyHeight !== body.offsetHeight ||
                   lastInnerWidth !== $window.innerWidth) {
                 lastYOffset = $window.pageYOffset;
-                lastBodyHeight = body.offsetHeight;
                 lastInnerWidth = $window.innerWidth;
-
-                // clear stickiness so we can get proper element position:
-                clearStickiness();
-                calculateElementPosition();
-
-                if (isStickyState()) {
-                  addStickiness();
-                }
+                updateState();
               }
+            }
 
-              requestID = $window.requestAnimationFrame(updateState);
+            function updateState() {
+              clearStickiness();
+              calculateElementPosition();
+
+              if (isStickyState()) {
+                addStickiness();
+              }
             }
 
             function calculateElementPosition() {
@@ -101,8 +116,16 @@
               }
             }
 
-            $element.on('$destroy', function() {
+            function stopPollingContentHeight() {
               $window.cancelAnimationFrame(requestID);
+            }
+
+            $element.on('$destroy', function() {
+              stopPollingContentHeight();
+              $win.unbind('blur', stopPollingContentHeight);
+              $win.unbind('focus', startPollingContentHeight);
+              $win.unbind('scroll', checkWindowAndUpdateState);
+              $win.unbind('resize', checkWindowAndUpdateState);
             });
           }
         };
