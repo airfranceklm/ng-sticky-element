@@ -8,8 +8,8 @@ describe('ng-sticky-element', function() {
     timeout,
     global = jasmine.getGlobal();
 
-  global.requestAnimationFrame = jasmine.createSpy('requestAnimationFrame');
-  global.cancelAnimationFrame = jasmine.createSpy('cancelAnimationFrame');
+  global.setInterval = jasmine.createSpy('setInterval');
+  global.clearInterval = jasmine.createSpy('clearInterval');
 
   beforeEach(function() {
     module('afklStickyElement');
@@ -29,14 +29,14 @@ describe('ng-sticky-element', function() {
       expect(element.hasClass('afkl-sticky-element')).toBeTruthy();
     });
 
-    it('should start requesting animation frame', function() {
+    it('should start polling content height', function() {
       timeout.flush();
-      expect(global.requestAnimationFrame).toHaveBeenCalled();
+      expect(global.setInterval).toHaveBeenCalled();
     });
 
-    it('should stop requesting animation frame on $destroy', function() {
+    it('should stop polling content height on $destroy', function() {
       element.remove();
-      expect(global.cancelAnimationFrame).toHaveBeenCalled();
+      expect(global.clearInterval).toHaveBeenCalled();
     });
   });
 });

@@ -34,7 +34,7 @@ Place ``afkl-sticky-element`` attribute onto element:
 ```
 ## Browser Support
 
-All modern browsers & IE versions newer than 9 are supported. IE9 should also be fine in case you polyfill [``matchMedia``](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) & [``requestAnimationFrame``](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
+All modern browsers & IE versions newer than 9 are supported. IE9 should also be fine in case you polyfill [``matchMedia``](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia).
 
 ## Development
 

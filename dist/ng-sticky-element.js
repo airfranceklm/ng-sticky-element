@@ -15,6 +15,8 @@
   var BOTTOM = 'bottom';
   var TOP = 'top';
 
+  var POLLING_DELAY = 200;
+
   angular.module('afklStickyElement.directives', []).directive('afklStickyElement', ['$window', '$document', '$timeout', function ($window, $document, $timeout) {
     return {
       restrict: 'A',
@@ -22,7 +24,7 @@
         $element.addClass(DEFAULT_CLASS);
 
         var stickTo = attrs.afklStickyElement === BOTTOM ? BOTTOM : TOP;
-        var requestID = null;
+        var intervalID = null;
         var body = $document[0].body;
         var lastBodyHeight = body.offsetHeight;
         var elPos = null;
@@ -49,12 +51,18 @@
         }, 0);
 
         function startPollingContentHeight() {
+          intervalID = $window.setInterval(checkContentHeightAndUpdate, POLLING_DELAY);
+        }
+
+        function stopPollingContentHeight() {
+          $window.clearInterval(intervalID);
+        }
+
+        function checkContentHeightAndUpdate() {
           if (lastBodyHeight !== body.offsetHeight) {
             lastBodyHeight = body.offsetHeight;
             updateState();
           }
-
-          requestID = $window.requestAnimationFrame(startPollingContentHeight);
         }
 
         function updateState() {
@@ -97,10 +105,6 @@
             isOnStickyMode = true;
             $element.addClass(STICKY_CLASS).css(stickTo, offset + 'px');
           }
-        }
-
-        function stopPollingContentHeight() {
-          $window.cancelAnimationFrame(requestID);
         }
 
         $element.on('$destroy', function () {
