@@ -67,3 +67,32 @@ h1 {
   width: 600px;
   bottom: 0;
 }
+
+@media (max-width: 960px) {
+
+  .demo__wrapper {
+    width: 100%;
+  }
+
+  .demo__content__body {
+    width: 100%;
+    margin: 0;
+  }
+
+  .demo__navigation {
+    position: relative;
+    width: 100%;
+  }
+
+  .demo__footer.afkl-sticky-element--sticky {
+    width: 100%;
+    left: 0;
+    padding: 0 24px;
+    background: none;
+  }
+
+  .demo__footer.afkl-sticky-element--sticky pre {
+    background-color: #ff931e;
+    padding-top: 12px;
+  }
+}
