@@ -22,8 +22,6 @@
             var requestID = null;
             var body = $document[0].body;
             var lastBodyHeight = body.offsetHeight;
-            var lastYOffset = $window.pageYOffset;
-            var lastInnerWidth = $window.innerWidth;
             var elPos = null;
             var isOnStickyMode = false;
             var element = $element[0];
@@ -34,8 +32,8 @@
 
             $win.bind('blur', stopPollingContentHeight);
             $win.bind('focus', startPollingContentHeight);
-            $win.bind('scroll', checkWindowAndUpdateState);
-            $win.bind('resize', checkWindowAndUpdateState);
+            $win.bind('scroll', updateState);
+            $win.bind('resize', updateState);
 
             // wait first directives to be rendered,
             // so we can get proper position values:
@@ -57,26 +55,17 @@
               requestID = $window.requestAnimationFrame(startPollingContentHeight);
             }
 
-            function checkWindowAndUpdateState() {
+            function updateState() {
               if (element.offsetWidth === 0 || element.offsetHeight === 0) {
                 return;
               }
 
+              clearStickiness();
+
               if (mediaQuery && !$window.matchMedia(mediaQuery).matches) {
-                clearStickiness();
                 return;
               }
 
-              if (lastYOffset !== $window.pageYOffset ||
-                  lastInnerWidth !== $window.innerWidth) {
-                lastYOffset = $window.pageYOffset;
-                lastInnerWidth = $window.innerWidth;
-                updateState();
-              }
-            }
-
-            function updateState() {
-              clearStickiness();
               calculateElementPosition();
 
               if (isStickyState()) {
@@ -124,8 +113,8 @@
               stopPollingContentHeight();
               $win.unbind('blur', stopPollingContentHeight);
               $win.unbind('focus', startPollingContentHeight);
-              $win.unbind('scroll', checkWindowAndUpdateState);
-              $win.unbind('resize', checkWindowAndUpdateState);
+              $win.unbind('scroll', updateState);
+              $win.unbind('resize', updateState);
             });
           }
         };
