@@ -8,4 +8,5 @@
 .afkl-sticky-element--visible {
   display: block !important; }
   .afkl-sticky-element--visible.ng-hide, .afkl-sticky-element--visible.ng-hide:not(.ng-hide-animate) {
-    display: block !important; }
+    display: block !important;
+    visibility: hidden !important; }

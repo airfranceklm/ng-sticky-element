@@ -11,7 +11,8 @@ $module: 'afkl-sticky-element';
 
     &.ng-hide,
     &.ng-hide:not(.ng-hide-animate) {
-        display: block !important;
+      display: block !important;
+      visibility: hidden !important;
     }
   }
 }
