@@ -1,0 +1,63 @@
+{
+  "name": "ng-sticky-element",
+  "description": "Angular directive to make HTML elements sticky when scrolling",
+  "version": "0.1.0",
+  "main": [
+    "dist/ng-sticky-element.js",
+    "dist/ng-sticky-element.css"
+  ],
+  "keywords": [
+    "angular",
+    "sticky",
+    "element",
+    "navigation",
+    "scroll"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/afklm/ng-sticky-element.git"
+  },
+  "homepage": "https://github.com/afklm/ng-sticky-element",
+  "authors": [
+    {
+      "name": "KLM Royal Dutch Airlines"
+    },
+    {
+      "name": "Tamer Aydin",
+      "homepage": "http://tamerayd.in"
+    },
+    {
+      "name": "Stephan Bakker",
+      "homepage": "http://stephanbakker.nl"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.3.15"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "src",
+    "demo",
+    ".travis.yml",
+    ".editorconfig",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.3.15"
+  },
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "d0277d1e77fd3257378763d187826c3e0b6fa87e"
+  },
+  "_source": "git://github.com/afklm/ng-sticky-element.git",
+  "_target": "~0.1.0",
+  "_originalSource": "ng-sticky-element",
+  "_direct": true
+}
