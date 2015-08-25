@@ -1,6 +1,6 @@
 {
   "name": "ng-sticky-element",
-  "description": "Angular directive for making element sticky on scrolling",
+  "description": "Angular directive to make HTML elements sticky when scrolling",
   "version": "0.1.0",
   "main": [
     "dist/ng-sticky-element.js",
