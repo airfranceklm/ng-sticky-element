@@ -23,6 +23,9 @@
   }, {
     "name": "Tamer Aydin",
     "homepage": "http://tamerayd.in"
+  }, {
+    "name": "Stephan Bakker",
+    "homepage": "http://stephanbakker.nl"
   }],
   "license": "MIT",
   "dependencies": {
