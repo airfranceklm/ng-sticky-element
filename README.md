@@ -2,6 +2,8 @@
 
 Angular directive to make HTML elements sticky when scrolling.
 
+[Demo](http://afklm.github.io/ng-sticky-element/)
+
 ## Usage
 
 Install ng-sticky-element via [Bower](http://bower.io):
