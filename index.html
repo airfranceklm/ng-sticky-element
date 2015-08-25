@@ -19,47 +19,47 @@
     ng-app="demoApp"
     ng-controller="demoMainController"
     ng-cloak>
+  <a href="https://github.com/afklm/ng-sticky-element"><img style="position: fixed; top: 0; right: 0; border: 0; z-index: 1;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
 
-    <header>
-        <h1>ng-sticky-content</h1>
-    </header>
+  <header>
+      <h1>ng-sticky-content</h1>
+  </header>
 
-    <div class="demo__wrapper">
-      <div class="demo__content">
-        <div
-            class="demo__navigation"
-            afkl-sticky-element
-            afkl-sticky-element-offset="24"
-            afkl-sticky-element-mq="(min-width: 960px)">
-          <pre>
+  <div class="demo__wrapper">
+    <div class="demo__content">
+      <div
+          class="demo__navigation"
+          afkl-sticky-element
+          afkl-sticky-element-offset="24"
+          afkl-sticky-element-mq="(min-width: 960px)">
+        <pre>
 &lt;div
     afkl-sticky-element
     afkl-sticky-element-offset=&quot;24&quot;
     afkl-sticky-element-mq=&quot;
       (min-width: 960px)&quot;&gt;
 &lt;/div&gt;
-          </pre>
-        </div>
+        </pre>
+      </div>
 
-        <div class="demo__content__body"
-            ng-click="increaseContentHeight()"
-            ng-style="{height: contentHeight + 'px'}">
-          <span
-              class="demo__content__text"
-              ng-show="isScrolledToBottom">
-            Click to increase content height (Sticky element will respond).
-          </span>
-          <div
-              class="demo__footer"
-              afkl-sticky-element="bottom">
-            <pre>
+      <div class="demo__content__body"
+          ng-click="increaseContentHeight()"
+          ng-style="{height: contentHeight + 'px'}">
+        <span
+            class="demo__content__text"
+            ng-show="isScrolledToBottom">
+          Click to increase content height (Sticky element will respond).
+        </span>
+        <div
+            class="demo__footer"
+            afkl-sticky-element="bottom">
+          <pre>
 &lt;div afkl-sticky-element=&quot;bottom&quot;&gt;&lt;/div&gt;
-            </pre>
-          </div>
+          </pre>
         </div>
       </div>
     </div>
-
   </div>
+
 </body>
 </html>
