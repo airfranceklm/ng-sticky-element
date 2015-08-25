@@ -1,6 +1,0 @@
-/**
- * ng-sticky-element v0.1.0 (https://github.com/afklm/ng-sticky-element)
- * Copyright 2015 - KLM Royal Dutch Airlines
- * Licensed under MIT
- */
-.afkl-sticky-element--sticky{position:fixed!important}.afkl-sticky-element--visible{display:block!important}.afkl-sticky-element--visible.ng-hide,.afkl-sticky-element--visible.ng-hide:not(.ng-hide-animate){display:block!important;visibility:hidden!important}
