@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/afklm/ng-sticky-element.svg?branch=master)](https://travis-ci.org/afklm/ng-sticky-element)
+
 # ng-sticky-element
 
 Angular directive for making element sticky on scrolling
